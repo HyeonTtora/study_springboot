@@ -5,31 +5,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-    @RequestMapping(value = {"","/","/main"}) // http://localhost:8080/homejsp
 
+    // 컨트롤러가 요청을 받아 모델과 데이터를 주고 받음
+    // 모델이 데이터 베이스와 연동되어 반영
+    // 모델에서 돌아온 데이터를 컨트롤러가 가지고 있음
+    // 해당 데이터와 파일 경로를 통해 View 로 출력
+
+    @RequestMapping(value = { "", "/", "/main" })
     public String main() {
-        int i = 0;
-        return "WEB-INF/views/main.jsp";
+
+        return "main";
+
     }
 
-    @RequestMapping(value = "/home") // http://localhost:8080/homejsp
+    @RequestMapping(value = "/home")
+    public String home() {
 
-    public void home() {
-        int i = 0;
-    }
+        return "main";
 
-    @RequestMapping(value = "/homejsp") // http://localhost:8080/homejsp
-
-    public String homejsp() {
-        int i = 0;
-        return "WEB-INF/views/home.jsp";
-    }
-
-    @RequestMapping(value = "/homehtml") // http://localhost:8080/homejsp
-
-    public String homehtml() {
-        int i = 0;
-        return "WEB-INF/views/home.html";
     }
 
 }
