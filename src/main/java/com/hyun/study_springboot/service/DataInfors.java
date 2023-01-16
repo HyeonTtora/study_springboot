@@ -22,6 +22,15 @@ public class DataInfors {
         return tablesListWithString;
     }
 
+    // -- 
+
+    public HashMap<String, Object> getDataByUid() {
+        HashMap<String, Object> listEdit = new HashMap<>();
+        listEdit.put("null", null);
+        listEdit.put("null", null);
+        return listEdit;
+    }
+
     public HashMap<String, Object> getBundlesData() {
         DataInfors DataInfors = new DataInfors();
         HashMap<String, String> searchForm = DataInfors.getSearchFormData();

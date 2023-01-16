@@ -78,6 +78,16 @@
               </tr>
         </tbody>
       </table>
+
+          <tbody>
+            <tr>
+                <th scope=>1 <a href="/board/view"> 갈비탕 맛있다 </a></th>
+                <td scope="row">맛집</td>
+                <td scope="row">김 길동</td>
+                <td scope="row">23-1-1</td>
+              </tr>
+           
+        </tbody>
     </table>
       </div>
    <div class="d-flex justify-content-center">

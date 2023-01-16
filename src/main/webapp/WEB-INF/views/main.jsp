@@ -10,5 +10,7 @@
     <div>Main ! HTML</div>
     <div>Board</div>
     <div><a href="/board/form">/board/form BoardController form() /board/form.jsp</a></div>
+    <div><a href="/jstl_formats">jstl_formats /jstl_formats</a></div>
+    <div><a href="/notice">/notice NoticeController form() /notice/ </a></div>
 </body>
 </html>

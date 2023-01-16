@@ -1,8 +1,10 @@
 package com.hyun.study_springboot.controller.BoardController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,10 +37,9 @@ public class BoardConroller {
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public ModelAndView form() {
+    public ModelAndView form(ModelAndView modelAndView) {
 
         // Writing Out
-        ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("board/form");
         return modelAndView; // --> Dispatcher Servlet }
     }
@@ -60,13 +61,23 @@ public class BoardConroller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/view", method = RequestMethod.GET)
-    public ModelAndView view(@RequestParam String title, ModelAndView modelAndView) {
-        System.out.println(title);
+    @RequestMapping(value = "/view/{action_uid}", method = RequestMethod.GET)
+    // public ModelAndView view(@RequestParam String title, ModelAndView
+    // modelAndView) {
+    public ModelAndView view(@PathVariable String action_uid, ModelAndView modelAndView) {
         DataInfors dataInfors = new DataInfors();
-        BoardBean boardBean = dataInfors.getDataWithMamberBean(title);
+        ArrayList<BoardBean> boardBean = dataInfors.getDataListWithBoardBean();
+
         modelAndView.addObject("boardBean", boardBean);
         modelAndView.setViewName("board/view");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    // public ModelAndView view(@RequestParam HashMap<String, String> params,
+    // ModelAndView modelAndView) {
+    public ModelAndView view(BoardBean boardBean, ModelAndView modelAndView) {
+        modelAndView.setViewName("board_our/list");
         return modelAndView;
     }
 
