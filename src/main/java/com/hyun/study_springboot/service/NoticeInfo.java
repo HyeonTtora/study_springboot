@@ -2,8 +2,11 @@ package com.hyun.study_springboot.service;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import com.my.springboot.study_springboot.beans.NoticeBean;
 
+@Service
 public class NoticeInfo {
     // 게시글 정보를 NoticeBean에 담아서 Arraylist추가 & 리턴
     public ArrayList<NoticeBean> getNoticeList() {

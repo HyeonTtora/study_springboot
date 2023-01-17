@@ -3,6 +3,7 @@ package com.hyun.study_springboot.controller.BoardController;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ import com.my.springboot.study_springboot.beans.BoardBean;
 @RequestMapping(value = "/board")
 public class BoardConroller {
 
+    @Autowired
+    DataInfors dataInfors;
+
     @RequestMapping(value = { "", "/list" }, method = RequestMethod.GET)
     public ModelAndView list() {
 
@@ -27,7 +31,7 @@ public class BoardConroller {
         modelAndView.addObject("firstString", "firstValue");
 
         // 3. DataInfo 를 가져와 Object 추가
-        DataInfors dataInfors = new DataInfors();
+        // DataInfors dataInfors = new DataInfors();
         ArrayList<BoardBean> boardList = dataInfors.getDataListWithBoardBean();
         modelAndView.addObject("boardList", boardList);
 
@@ -65,7 +69,7 @@ public class BoardConroller {
     // public ModelAndView view(@RequestParam String title, ModelAndView
     // modelAndView) {
     public ModelAndView view(@PathVariable String action_uid, ModelAndView modelAndView) {
-        DataInfors dataInfors = new DataInfors();
+        // DataInfors dataInfors = new DataInfors();
         ArrayList<BoardBean> boardBean = dataInfors.getDataListWithBoardBean();
 
         modelAndView.addObject("boardBean", boardBean);

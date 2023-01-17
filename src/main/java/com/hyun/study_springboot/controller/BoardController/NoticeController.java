@@ -2,6 +2,7 @@ package com.hyun.study_springboot.controller.BoardController;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,10 @@ import com.my.springboot.study_springboot.beans.NoticeBean;
 // 상위 url 모든 RequestMapping의 앞에 작성댐
 public class NoticeController {
 
+    
+    @Autowired
+    NoticeInfo noticeInfo;
+
     // Root 서블릿 - /notice >> /notice/list - 던지는 용도 / 리다이렉션 / URL 변화
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String root() {
@@ -27,7 +32,7 @@ public class NoticeController {
     public ModelAndView list(ModelAndView modelAndView) {
 
         // notice bean 객체를 arrylist로 받음
-        NoticeInfo noticeInfo = new NoticeInfo();
+        // NoticeInfo noticeInfo = new NoticeInfo();
         ArrayList<NoticeBean> noticeList = noticeInfo.getNoticeList();
         // 모델엔뷰에담음
         modelAndView.addObject("noticeList", noticeList);
@@ -42,7 +47,7 @@ public class NoticeController {
     @RequestMapping(value = "/view/{uId}", method = RequestMethod.GET)
     public ModelAndView view(@PathVariable String uId, ModelAndView modelAndView) {
         // 정보 가져오기 위해 noticeinfo 객체생성
-        NoticeInfo noticeInfo = new NoticeInfo();
+        // NoticeInfo noticeInfo = new NoticeInfo();
         // uid에 해당하는 게시글 정보 가져오기
         NoticeBean noticeBean = noticeInfo.getNoticeBean(uId);
         // 가져온 정보 모델 & 뷰 담기
@@ -59,7 +64,7 @@ public class NoticeController {
     public ModelAndView edit(@PathVariable String uId, ModelAndView modelAndView) {
 
         // 1. 정보를 가져오기 위해 NoticeInfo 객체 생성
-        NoticeInfo noticeInfo = new NoticeInfo();
+        // NoticeInfo noticeInfo = new NoticeInfo();
 
         // 2. uId 에 해당하는 게시글의 정보를 가져옴
         NoticeBean noticeBean = noticeInfo.getNoticeBean(uId);
